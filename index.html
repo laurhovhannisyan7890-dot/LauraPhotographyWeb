@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Laura Hovhannisyan – Photography &amp; Cinematic Videography in The Hague</title>
+<meta content="Professional photographer and videographer based in The Hague, Netherlands. Capturing architecture, events, portraits, and cinematic stories across Europe." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://laura-portfolio.example/" rel="canonical"/>
+<!-- Open Graph -->
+<meta content="Laura Hovhannisyan – Photography &amp; Cinematic Videography in The Hague" property="og:title"/>
+<meta content="Architecture, events, portraits and films — authentic storytelling with natural light and refined composition." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="media/DSCF4733.jpg" property="og:image"/>
+<meta content="en_US" property="og:locale"/>
+<!-- Twitter -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Laura Hovhannisyan – Photography &amp; Cinematic Videography in The Hague" name="twitter:title"/>
+<meta content="Architecture, events, portraits and films — authentic storytelling with natural light and refined composition." name="twitter:description"/>
+<meta content="media/DSCF4733.jpg" name="twitter:image"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<style>
+    :root{
+      --hero-solid:#111;      /* safe default */
+      --hero-on:#fff;
+      --lb-backdrop: rgba(0,0,0,.9);
+      --lb-duration: .28s;
+      --lb-ease: cubic-bezier(.2,.8,.2,1);
+      --shadow-xl: 0 20px 45px rgba(0,0,0,.25);
+      --ring: 0 0 0 2px rgba(255,255,255,.45);
+    }
+
+    html{ scroll-behavior: smooth; }
+    body{ font-family: 'Helvetica Neue', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; color:#333; background:#fafafa; }
+    .no-scroll { overflow: hidden; }
+
+    header{ background: var(--hero-solid); color: var(--hero-on); padding: 2.25rem 1rem 2.5rem; text-align:center; position: relative;
+            background-image: linear-gradient(180deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.62) 20%, rgba(0,0,0,.38) 60%, rgba(0,0,0,.12) 100%), var(--hero-gradient, none);
+            background-blend-mode: multiply, normal; }
+    header img{ width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 4px solid rgba(255,255,255,.95); margin-bottom: .9rem; box-shadow: var(--shadow-xl); }
+    header h1{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin:.2em 0; letter-spacing:.6px; }
+    header p{ font-size: clamp(1rem, 1.8vw, 1.2rem); color: #d8d8d8; margin:.25rem 0 0; }
+
+    nav{ position: sticky; top: 0; z-index: 10; background:#111; padding:.7rem .75rem; text-align:center; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    nav a{ color:#fff; margin: 0 .5rem; text-decoration:none; font-weight:700; font-size:.98rem; padding:.35rem .5rem; border-radius:.5rem; display:inline-block; }
+    nav a:hover{ background: rgba(255,255,255,.08); text-decoration:none; }
+
+    section{ padding: 3rem 1.25rem; max-width: 1100px; margin: auto; line-height:1.65; }
+    h2{ border-bottom: 2px solid #e9e9e9; padding-bottom:.35rem; margin-bottom:1rem; font-size: clamp(1.3rem, 2.6vw, 1.6rem); }
+    p{ margin:.6rem 0 1rem; }
+
+    .gallery{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+    figure{ margin: 0; border-radius: 16px; overflow: hidden; background:#fff; box-shadow: 0 10px 28px rgba(0,0,0,.12); outline: none; border:1px solid #eaeaea; }
+    figure:focus{ box-shadow: 0 0 0 3px rgba(17,17,17,.9); }
+    figure img{ width:100%; height: 100%; display:block; border:0; aspect-ratio: 4/3; object-fit: cover; transition: transform .35s var(--lb-ease); cursor: zoom-in; border-radius: 12px; }
+    figure img:hover{ transform: scale(1.03); }
+    figcaption{ font-size:.92rem; color:#666; padding:.6rem .75rem .8rem; background:#fff; }
+    .bw{ filter: grayscale(100%); }
+
+    footer{ background:#000; color:#fff; text-align:center; padding:1.5rem; margin-top:2rem; font-size:.95rem; }
+
+    .socials{ margin-top:.8rem; display:flex; gap:12px; align-items:center; flex-wrap: wrap; }
+    .socials a{ display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; border:1px solid #ddd; background:#fff; text-decoration:none; }
+    .socials a:hover{ transform: translateY(-1px); box-shadow: 0 2px 10px rgba(0,0,0,0.06); }
+    .socials svg{ width:20px; height:20px; fill:#111; }
+
+    .video-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+    .video{ position: relative; width: 100%; padding-top: 56.25%; border-radius: .6rem; overflow: hidden; background: #000; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+    .video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+    .reveal{ opacity:0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible{ opacity:1; transform: translateY(0); }
+
+    /* LIGHTBOX */
+    .lightbox-backdrop{ position: fixed; inset:0; display:flex; align-items:center; justify-content:center; padding: 1.25rem; background: var(--lb-backdrop); opacity: 0; visibility: hidden; transition: opacity var(--lb-duration) var(--lb-ease), visibility 0s linear var(--lb-duration); z-index: 9999; }
+    .lightbox-backdrop.open{ opacity: 1; visibility: visible; transition: opacity var(--lb-duration) var(--lb-ease); }
+    .lightbox-surface{ position: relative; max-width: min(92vw, 1400px); max-height: 88vh; width: 100%; display:flex; flex-direction: column; gap: .5rem; }
+    .lightbox-viewport{ position: relative; width: 100%; height: calc(88vh - 64px); background: #000; border-radius: .6rem; overflow: hidden; box-shadow: var(--shadow-xl); touch-action: pan-y; }
+    .lightbox-viewport img{ position:absolute; inset:0; width:100%; height:100%; object-fit: contain; display:block; transform: translateY(6px) scale(.985); transition: transform var(--lb-duration) var(--lb-ease), opacity var(--lb-duration) var(--lb-ease); opacity: .98; }
+    .lightbox-backdrop.open .lightbox-viewport img{ transform: translateY(0) scale(1); opacity: 1; }
+
+    .lightbox-close, .lightbox-prev, .lightbox-next{ position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 9999px; border: none; background: rgba(255,255,255,.14); color: #fff; display: grid; place-items:center; cursor: pointer; backdrop-filter: blur(4px); box-shadow: var(--ring); }
+    .lightbox-close{ top: 10px; right: 10px; transform: none; width: 40px; height: 40px; }
+    .lightbox-prev{ left: 10px; }
+    .lightbox-next{ right: 10px; }
+    .lightbox-prev[disabled], .lightbox-next[disabled]{ opacity: .35; cursor: not-allowed; }
+
+    .lightbox-meta{ display:flex; align-items:center; justify-content: space-between; gap:.75rem; color:#f5f5f5; font-size:.95rem; line-height:1.3; padding: .35rem .25rem; }
+    .lightbox-caption{ flex:1; color:#e5e5e5; opacity:.9; }
+    .lightbox-counter{ white-space: nowrap; opacity:.8; }
+
+    .icon{ width: 22px; height: 22px; fill: currentColor; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ transition: none !important; animation: none !important; }
+    }
+    @media (max-width: 480px){
+      nav a{ margin: 0 .25rem; font-size:.95rem; }
+      .lightbox-viewport{ height: calc(88vh - 80px); }
+      .lightbox-prev, .lightbox-next{ width: 40px; height: 40px; }
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&amp;family=Nunito:wght@400;600&amp;display=swap" rel="stylesheet"/><style>
+    #about h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+    }
+    #about p,
+    #about .friendly-template {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    </style></head>
+<body>
+<!-- Lightbox root (ARIA-ready) -->
+<div aria-hidden="true" aria-modal="true" class="lightbox-backdrop" id="lightbox" role="dialog">
+<div aria-live="polite" class="lightbox-surface">
+<div class="lightbox-viewport" id="lightboxViewport">
+<img alt="Expanded view" id="lightboxImage" src=""/>
+<button aria-label="Previous image" class="lightbox-prev" id="lightboxPrev" title="Previous (←)">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+</button>
+<button aria-label="Next image" class="lightbox-next" id="lightboxNext" title="Next (→)">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41L16 12l-5.99-6-1.42 1.41L13.17 12z"></path></svg>
+</button>
+<button aria-label="Close" class="lightbox-close" id="lightboxClose" title="Close (Esc)">
+<svg aria-hidden="true" class="icon" viewbox="0 0 24 24"><path d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.71 2.89 18.3 9.18 12 2.89 5.71 4.3 4.29l6.3 6.3 6.29-6.3z"></path></svg>
+</button>
+</div>
+<div class="lightbox-meta">
+<div class="lightbox-caption" id="lightboxCaption"></div>
+<div class="lightbox-counter" id="lightboxCounter">–/–</div>
+</div>
+</div>
+</div>
+<header>
+<img alt="Portrait of Laura Hovhannisyan, photographer based in The Hague" loading="lazy" src="media/DSCF4733.jpg"/>
+<h1>Laura Hovhannisyan</h1>
+<p>Photography &amp; Cinematic Videography</p>
+<p>Telling stories of people, places, and light</p>
+</header>
+<nav aria-label="Primary">
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#architecture">Architecture</a>
+<a href="#events">Events</a>
+<a href="#videography">Videography</a>
+<a href="#embassy">Embassy</a>
+<a href="#portraits">Portraits</a>
+<a href="#contact">Contact</a>
+</nav>
+<section class="reveal" id="about">
+<h2>About Me</h2><p>Hi, I’m Laura. I see every project as a conversation between people, places, and light. My aim is to help you feel comfortable and to shape your moments into timeless photos and films. Whether it’s a portrait, an event, or an everyday detail, I work with warmth, curiosity, and a cinematic sense of composition.</p>
+</section>
+<section class="reveal" id="experience">
+<h2>Experience Photography</h2>
+<p><em>Moments that tell a story – capturing the joy, connection, and atmosphere that make every experience unforgettable.</em></p>
+<div class="gallery">
+<figure tabindex="0">
+<img alt="Candid portrait in soft afternoon light, Delft 2024" loading="lazy" src="media/DSCF0494.JPG"/>
+<figcaption><strong>Delft, 2024</strong> – A candid portrait bathed in late-afternoon light, capturing genuine warmth and connection.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Full-figure lifestyle moment with church tower backdrop, Delft 2024" loading="lazy" src="media/DSCF0589.JPG"/>
+<figcaption><strong>Delft, 2024</strong> – Lifestyle photography during a golden-hour stroll through historic streets, blending human emotion with the city’s architectural charm.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Close portrait with canal bokeh, Delft 2024" loading="lazy" src="media/DSCF0483.JPG"/>
+<figcaption><strong>Delft, 2024</strong> – Intimate urban moment with gentle bokeh and a subtle smile, highlighting both personality and place.</figcaption>
+</figure>
+</div>
+</section>
+<section class="reveal" id="architecture">
+<h2>Architecture Photography</h2>
+<div class="gallery">
+<figure tabindex="0">
+<img alt="Amsterdam interior scene – natural light and warm textures" loading="lazy" src="media/DSCF4731.jpg"/>
+<figcaption>Amsterdam, 2025 – Interior photography for a design studio’s promotional campaign, capturing the room’s full charm, natural light, and cozy atmosphere to highlight the brand’s aesthetic vision.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Amsterdam interior – seating area with design details" loading="lazy" src="media/DSCF4769-2.jpg"/>
+<figcaption>Amsterdam, 2025 – Interior photography for a design studio’s promotional campaign, capturing the room’s full charm, natural light, and cozy atmosphere to highlight the brand’s aesthetic vision.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Amsterdam interior – corner composition with soft ambience" loading="lazy" src="media/DSCF4778.jpg"/>
+<figcaption>Amsterdam, 2025 – Interior photography for a design studio’s promotional campaign, capturing the room’s full charm, natural light, and cozy atmosphere to highlight the brand’s aesthetic vision.</figcaption>
+</figure>
+</div>
+</section>
+<section class="reveal" id="events">
+<h2>Gentleman’s Ride – The Hague, Netherlands (2024)</h2>
+<p>Classic &amp; vintage style motorcycles riding for men’s health. A celebration of community and timeless style – where leather, chrome, and character meet a shared purpose. Captured on the streets of The Hague, combining energetic colour with a few black‑and‑white moments for a cinematic, nostalgic feel.</p>
+<div class="gallery">
+<figure tabindex="0">
+<img alt="Gentleman’s Ride group of smiling riders in classic attire (B&amp;W), The Hague 2024" class="bw" loading="lazy" src="media/DSCF3386.jpg"/>
+<figcaption><strong>The Hague, 2024</strong> – Friends and riders in timeless menswear, all smiles before the start. <em>(Black &amp; white edit)</em></figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Gentleman’s Ride colour shot – rider with blue tank motorcycle, The Hague 2024" loading="lazy" src="media/DSCF3341.jpg"/>
+<figcaption><strong>The Hague, 2024</strong> – Chrome details, navy tank and leather jackets set the tone for a classic ride with purpose.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Gentleman’s Ride cinematic profile with scarf and goggles (B&amp;W), The Hague 2024" class="bw" loading="lazy" src="media/DSCF3225.jpg"/>
+<figcaption><strong>The Hague, 2024</strong> – Cinematic profile with scarf and goggles; the human side of the ride, distilled. <em>(Black &amp; white edit)</em></figcaption>
+</figure>
+</div>
+</section>
+
+<section class="reveal" id="videography">
+  <h2>Videography</h2>
+  <p>I also offer cinematic videography services — capturing movement, light, and atmosphere. 
+  Samples can be provided upon request.</p>
+</section>
+
+<section class="reveal" id="embassy">
+<h2>Armenian Embassy – The Hague, Netherlands (2024)</h2>
+<p>Covered cultural and official ceremonies at the Armenian Embassy in the Netherlands, documenting diplomatic receptions, formal gatherings, and high-level networking events. The work reflects the respectful atmosphere, attention to detail, and cultural significance of each occasion.</p>
+<div class="gallery">
+<figure tabindex="0">
+<img alt="Armenian Embassy reception – greeting between guests, The Hague 2024" loading="lazy" src="media/DSCF1804.jpg"/>
+<figcaption><strong>The Hague, 2024</strong> – Guests and officials exchanging greetings during the cultural reception.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Ambassador formal portrait during official ceremony, The Hague 2024" loading="lazy" src="media/DSCF0560.JPEG"/>
+<figcaption><strong>The Hague, 2024</strong> – Formal portrait of the Ambassador during the official ceremony, embodying dignity and leadership.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Cultural performance at Armenian Embassy event, The Hague 2024" loading="lazy" src="media/DSCF1611-2.JPEG"/>
+<figcaption><strong>The Hague, 2024</strong> – Musical performance as part of the cultural program, blending tradition and diplomacy.</figcaption>
+</figure>
+</div>
+</section>
+<section class="reveal" id="portraits">
+<h2>Musician Portraits – The Hague, 2023</h2>
+<p>A commissioned portrait series for cellist <strong>Luka Stefanović</strong>, capturing the harmony between musician and instrument in an urban setting. Shot in natural light, the images blend the architectural textures of The Hague with the elegance and focus of a classical performer.</p>
+<div class="gallery">
+<figure tabindex="0">
+<img alt="Cellist Luka Stefanović portrait with cello, The Hague 2023" loading="lazy" src="media/DSCF0994.JPG"/>
+<figcaption><strong>The Hague, 2023</strong> – Luka in deep concentration, framed by soft urban light, expressing the intimate bond with his cello.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Luka Stefanović full-body with cello against historic architecture, The Hague 2023" loading="lazy" src="media/DSCF0762.jpg"/>
+<figcaption><strong>The Hague, 2023</strong> – Full-body composition highlighting the elegance of Luka’s posture and the graceful lines of the cello against historic architecture.</figcaption>
+</figure>
+<figure tabindex="0">
+<img alt="Close-up of Luka Stefanović – expressive gaze and polished cello wood, The Hague 2023" loading="lazy" src="media/DSCF0719.JPG"/>
+<figcaption><strong>The Hague, 2023</strong> – A close-up capturing Luka’s thoughtful expression, where the focus shifts between the musician’s gaze and the polished wood of the instrument.</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="press" class="reveal">
+  <h2>Press & Mentions</h2>
+  <ul>
+    <li>
+      <a href="https://niderlandakan.livejournal.com/618332.html" target="_blank" rel="noopener">
+        “Մեր ստեղծագործողները՝ Լաուրա Հովհաննիսյան” — Niderlandakan LiveJournal
+      </a>
+    </li>
+    <li>
+      <a href="https://konkreetnieuws.nl/wp-content/uploads/2025/06/2025-3-juni-web.pdf" target="_blank" rel="noopener">
+        Konkreet Nieuws, Edition June 2025 (see page 8) — PDF Publication
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section class="reveal" id="contact">
+<h2>Contact</h2>
+<p><strong>Email:</strong> <a href="mailto:lauraphotography.nl@gmail.com">lauraphotography.nl@gmail.com</a>   •   <strong>Phone:</strong> +31 6 1804 1953</p>
+<p><strong>Location:</strong> The Hague, South Holland, The Netherlands</p>
+<div class="socials">
+<a aria-label="Instagram" href="https://www.instagram.com/the_hague_photography/" rel="noopener" target="_blank" title="Instagram">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"></path></svg>
+</a>
+<a aria-label="500px" href="https://500px.com/p/LauraHovhannisyan?view=photos" rel="noopener" target="_blank" title="500px">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 2C6.477 2 2 6.478 2 12.002 2 17.525 6.477 22 12 22s10-4.475 10-9.998C22 6.478 17.523 2 12 2zm0 1.6a8.4 8.4 0 1 1 0 16.8 8.4 8.4 0 0 1 0-16.8zm-1.15 5.15c-.54 0-1.05.075-1.51.22-.46.15-.87.36-1.23.63-.36.27-.65.59-.86.95-.2.36-.3.77-.3 1.21h1.79c0-.26.06-.48.18-.66.12-.18.29-.33.5-.45.21-.12.45-.21.72-.27.28-.06.57-.09.88-.09.33 0 .65.03.95.1.3.07.57.18.8.33.23.15.41.34.54.58.13.24.19.51.19.82 0 .33-.07.6-.21.82-.14.21-.33.39-.56.53a3.18 3.18 0 0 1-.8.33 5.78 5.78 0 0 1-.95.1c-.34 0-.64-.03-.91-.09a2.43 2.43 0 0 1-.69-.27 1.37 1.37 0 0 1-.49-.45c-.12-.18-.18-.4-.18-.66H6.95c0 .44.1.85.3 1.21.21.37.5.68.86.95.36.27.77.48 1.23.63.46.15.96.22 1.5.22.58 0 1.11-.07 1.6-.21a3.9 3.9 0 0 0 1.27-.62c.36-.27.64-.59.84-.96.2-.37.3-.78.3-1.22 0-.48-.1-.9-.3-1.26a2.56 2.56 0 0 0-.84-.93 3.87 3.87 0 0 0-1.27-.61 6.2 6.2 0 0 0-1.6-.2zm4.64 2.04c.43 0 .8.07 1.13.21.33.14.61.34.84.59.23.25.4.54.51.87.11.33.17.68.17 1.05 0 .37-.06.73-.17 1.06a2.43 2.43 0 0 1-.51.86 2.26 2.26 0 0 1-.84.58c-.33.14-.7.21-1.13.21-.43 0-.8-.07-1.13-.21a2.23 2.23 0 0 1-.84-.58 2.43 2.43 0 0 1-.51-.86 3.08 3.08 0 0 1-.17-1.06c0-.37.06-.72.17-1.05.11-.33.28-.62.51-.87.23-.25.51-.45.84-.59.33-.14.7-.21 1.13-.21z"></path></svg>
+</a>
+</div>
+</section>
+<footer>
+<p>© 2025 Laura Hovhannisyan Photography. All rights reserved.</p>
+</footer>
+<!-- Reveal-on-scroll script -->
+<script>
+    (function() {
+      var els = document.querySelectorAll('section, figure');
+      els.forEach(function(el){ el.classList.add('reveal'); });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+<!-- Dynamic header color from first gallery image -->
+<script>
+    (function(){
+      function relLum(r,g,b){
+        const a=[r,g,b].map(v=>{ v/=255; return v<=0.03928? v/12.92 : Math.pow((v+0.055)/1.055,2.4); });
+        return 0.2126*a[0]+0.7152*a[1]+0.0722*a[2];
+      }
+      function clamp(x,min,max){ return Math.max(min, Math.min(max,x)); }
+      function dominantColor(img){
+        const c=document.createElement('canvas'); const w=c.width=24,h=c.height=24;
+        const ctx=c.getContext('2d',{ willReadFrequently:true });
+        ctx.drawImage(img,0,0,w,h);
+        try{
+          const data=ctx.getImageData(0,0,w,h).data; let r=0,g=0,b=0,n=0;
+          for(let i=0;i<data.length;i+=4){ if(data[i+3]<16) continue; r+=data[i]; g+=data[i+1]; b+=data[i+2]; n++; }
+          if(!n) return [90,90,90]; r=Math.round(r/n); g=Math.round(g/n); b=Math.round(b/n);
+          const avg=(r+g+b)/3; const desat=0.75; r=Math.round(avg+(r-avg)*desat); g=Math.round(avg+(g-avg)*desat); b=Math.round(avg+(b-avg)*desat);
+          const darken=0.88; r=Math.round(r*darken); g=Math.round(g*darken); b=Math.round(b*darken);
+          r=clamp(r,20,200); g=clamp(g,20,200); b=clamp(b,20,200); return [r,g,b];
+        }catch(e){ return [90,90,90]; }
+      }
+      function applyHeader([r,g,b]){
+        const solid = `rgb(${r} ${g} ${b})`;
+        const gradient = `linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.06))`;
+        const on = relLum(r,g,b) > 0.6 ? '#111' : '#ffffff';
+        const header = document.querySelector('header'); if(!header) return;
+        header.style.setProperty('--hero-solid', solid); header.style.setProperty('--hero-on', on); header.style.backgroundImage = gradient + ', var(--hero-gradient, none)';
+      }
+      function setHeroGradientFrom(img){
+        try{
+          const [r,g,b]=dominantColor(img);
+          const grad = `linear-gradient(180deg, rgba(${r},${g},${b},0.25) 0%, rgba(${r},${g},${b},0.10) 60%, rgba(${r},${g},${b},0.00) 100%)`;
+          document.documentElement.style.setProperty('--hero-gradient', grad);
+        }catch(e){}
+      }
+      function init(){
+        const firstImg = document.querySelector('.gallery figure img');
+        if(firstImg){
+          const run = ()=>{ applyHeader(dominantColor(firstImg)); setHeroGradientFrom(firstImg); };
+          firstImg.complete ? run() : firstImg.addEventListener('load', run, { once:true });
+        }
+      }
+      document.readyState==='loading' ? document.addEventListener('DOMContentLoaded', init) : init();
+    })();
+  </script>
+<!-- Accessible, mobile-friendly Lightbox with keyboard + swipe -->
+<script>
+    (function(){
+      const backdrop = document.getElementById('lightbox');
+      const viewport = document.getElementById('lightboxViewport');
+      const imgEl    = document.getElementById('lightboxImage');
+      const caption  = document.getElementById('lightboxCaption');
+      const counter  = document.getElementById('lightboxCounter');
+      const btnPrev  = document.getElementById('lightboxPrev');
+      const btnNext  = document.getElementById('lightboxNext');
+      const btnClose = document.getElementById('lightboxClose');
+
+      let group = [];
+      let index = 0;
+      let lastFocused = null;
+
+      function buildGroup(fromImg){
+        const section = fromImg.closest('section') || document;
+        const imgs = section.querySelectorAll('.gallery img');
+        group = Array.from(imgs).map(img => ({
+          el: img,
+          src: img.dataset.full || img.currentSrc || img.src,
+          alt: img.alt || '',
+          caption: (img.closest('figure')?.querySelector('figcaption')?.innerText || img.alt || '')
+        }));
+        return group;
+      }
+
+      function preload(i){
+        const g = group; if(!g.length) return;
+        [i-1, i+1].forEach(k=>{ const j=(k+g.length)%g.length; const preloadImg=new Image(); preloadImg.src=g[j].src; });
+      }
+
+      function render(){
+        const item = group[index]; if(!item) return;
+        imgEl.style.opacity = '.6';
+        const tmp = new Image();
+        tmp.onload = function(){
+          imgEl.src = item.src; imgEl.alt = item.alt || 'Expanded view'; imgEl.style.opacity='1';
+        };
+        tmp.src = item.src;
+        caption.textContent = item.caption || '';
+        counter.textContent = `${index+1} / ${group.length}`;
+        preload(index);
+      }
+
+      function open(fromImg){
+        buildGroup(fromImg);
+        index = Math.max(0, group.findIndex(g=>g.el===fromImg));
+        lastFocused = document.activeElement;
+        backdrop.classList.add('open');
+        backdrop.setAttribute('aria-hidden','false');
+        document.body.classList.add('no-scroll');
+        render();
+        btnClose.focus();
+        addDocListeners();
+      }
+
+      function close(){
+        backdrop.classList.remove('open');
+        backdrop.setAttribute('aria-hidden','true');
+        document.body.classList.remove('no-scroll');
+        removeDocListeners();
+        if(lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+
+      function next(){ index = (index + 1) % group.length; render(); }
+      function prev(){ index = (index - 1 + group.length) % group.length; render(); }
+
+      document.addEventListener('click', function(e){
+        const t = e.target;
+        if(t.matches('.gallery img')){ e.preventDefault(); open(t); }
+      });
+
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' && document.activeElement?.matches('figure')){
+          const img = document.activeElement.querySelector('img'); if(img){ open(img); }
+        }
+      });
+
+      backdrop.addEventListener('click', function(e){
+        if(e.target === backdrop){ close(); }
+      });
+      btnClose.addEventListener('click', close);
+      btnNext.addEventListener('click', next);
+      btnPrev.addEventListener('click', prev);
+
+      function onKeydown(e){
+        switch(e.key){
+          case 'Escape': e.preventDefault(); close(); break;
+          case 'ArrowRight': e.preventDefault(); next(); break;
+          case 'ArrowLeft': e.preventDefault(); prev(); break;
+          case 'Tab': trapFocus(e); break;
+        }
+      }
+
+      function focusables(){
+        return Array.from(backdrop.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
+          .filter(el=>!el.hasAttribute('disabled') && el.getAttribute('tabindex') !== '-1');
+      }
+      function trapFocus(e){
+        const f = focusables(); if(!f.length) return;
+        const first = f[0], last = f[f.length-1];
+        if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+
+      function addDocListeners(){ document.addEventListener('keydown', onKeydown); addSwipe(); }
+      function removeDocListeners(){ document.removeEventListener('keydown', onKeydown); removeSwipe(); }
+
+      // Touch swipe for mobile
+      let startX=0, startY=0, moved=false;
+      function onTouchStart(e){ const t=e.changedTouches[0]; startX=t.clientX; startY=t.clientY; moved=false; }
+      function onTouchMove(e){ const t=e.changedTouches[0]; const dx=t.clientX-startX; const dy=t.clientY-startY; if(Math.abs(dx)>Math.abs(dy)) { e.preventDefault(); moved=true; } }
+      function onTouchEnd(e){ if(!moved) return; const t=e.changedTouches[0]; const dx=t.clientX-startX; const threshold = 40; if(Math.abs(dx) > threshold){ dx<0 ? next() : prev(); } }
+      function addSwipe(){ viewport.addEventListener('touchstart', onTouchStart,{passive:true}); viewport.addEventListener('touchmove', onTouchMove,{passive:false}); viewport.addEventListener('touchend', onTouchEnd,{passive:true}); }
+      function removeSwipe(){ viewport.removeEventListener('touchstart', onTouchStart); viewport.removeEventListener('touchmove', onTouchMove); viewport.removeEventListener('touchend', onTouchEnd); }
+    })();
+  </script>
+</body>
+</html>
