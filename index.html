@@ -32,7 +32,7 @@
     }
 
     html{ scroll-behavior: smooth; }
-    body{ font-family: 'Helvetica Neue', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; color:#333; background:#fafafa; }
+    body{ font-family: 'Helvetica Neue', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; color:#181818; background:#F7F6F3; }
     .no-scroll { overflow: hidden; }
 
     header{ background: var(--hero-solid); color: var(--hero-on); padding: 2.25rem 1rem 2.5rem; text-align:center; position: relative;
@@ -55,7 +55,7 @@
     figure:focus{ box-shadow: 0 0 0 3px rgba(17,17,17,.9); }
     figure img{ width:100%; height: 100%; display:block; border:0; aspect-ratio: 4/3; object-fit: cover; transition: transform .35s var(--lb-ease); cursor: zoom-in; border-radius: 12px; }
     figure img:hover{ transform: scale(1.03); }
-    figcaption{ font-size:.92rem; color:#666; padding:.6rem .75rem .8rem; background:#fff; }
+    figcaption{ font-size:.92rem; color:#6F6F6F; padding:.6rem .75rem .8rem; background:#fff; }
     .bw{ filter: grayscale(100%); }
 
     footer{ background:#000; color:#fff; text-align:center; padding:1.5rem; margin-top:2rem; font-size:.95rem; }
@@ -337,51 +337,6 @@
         });
       }, { threshold: 0.15 });
       els.forEach(function(el){ io.observe(el); });
-    })();
-  </script>
-<!-- Dynamic header color from first gallery image -->
-<script>
-    (function(){
-      function relLum(r,g,b){
-        const a=[r,g,b].map(v=>{ v/=255; return v<=0.03928? v/12.92 : Math.pow((v+0.055)/1.055,2.4); });
-        return 0.2126*a[0]+0.7152*a[1]+0.0722*a[2];
-      }
-      function clamp(x,min,max){ return Math.max(min, Math.min(max,x)); }
-      function dominantColor(img){
-        const c=document.createElement('canvas'); const w=c.width=24,h=c.height=24;
-        const ctx=c.getContext('2d',{ willReadFrequently:true });
-        ctx.drawImage(img,0,0,w,h);
-        try{
-          const data=ctx.getImageData(0,0,w,h).data; let r=0,g=0,b=0,n=0;
-          for(let i=0;i<data.length;i+=4){ if(data[i+3]<16) continue; r+=data[i]; g+=data[i+1]; b+=data[i+2]; n++; }
-          if(!n) return [90,90,90]; r=Math.round(r/n); g=Math.round(g/n); b=Math.round(b/n);
-          const avg=(r+g+b)/3; const desat=0.75; r=Math.round(avg+(r-avg)*desat); g=Math.round(avg+(g-avg)*desat); b=Math.round(avg+(b-avg)*desat);
-          const darken=0.88; r=Math.round(r*darken); g=Math.round(g*darken); b=Math.round(b*darken);
-          r=clamp(r,20,200); g=clamp(g,20,200); b=clamp(b,20,200); return [r,g,b];
-        }catch(e){ return [90,90,90]; }
-      }
-      function applyHeader([r,g,b]){
-        const solid = `rgb(${r} ${g} ${b})`;
-        const gradient = `linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.06))`;
-        const on = relLum(r,g,b) > 0.6 ? '#111' : '#ffffff';
-        const header = document.querySelector('header'); if(!header) return;
-        header.style.setProperty('--hero-solid', solid); header.style.setProperty('--hero-on', on); header.style.backgroundImage = gradient + ', var(--hero-gradient, none)';
-      }
-      function setHeroGradientFrom(img){
-        try{
-          const [r,g,b]=dominantColor(img);
-          const grad = `linear-gradient(180deg, rgba(${r},${g},${b},0.25) 0%, rgba(${r},${g},${b},0.10) 60%, rgba(${r},${g},${b},0.00) 100%)`;
-          document.documentElement.style.setProperty('--hero-gradient', grad);
-        }catch(e){}
-      }
-      function init(){
-        const firstImg = document.querySelector('.gallery figure img');
-        if(firstImg){
-          const run = ()=>{ applyHeader(dominantColor(firstImg)); setHeroGradientFrom(firstImg); };
-          firstImg.complete ? run() : firstImg.addEventListener('load', run, { once:true });
-        }
-      }
-      document.readyState==='loading' ? document.addEventListener('DOMContentLoaded', init) : init();
     })();
   </script>
 <!-- Accessible, mobile-friendly Lightbox with keyboard + swipe -->
